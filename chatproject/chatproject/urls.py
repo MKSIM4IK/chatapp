@@ -53,8 +53,4 @@ urlpatterns = [
     path('chat/', include('chatapp.urls')),  
     path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),  
     path('register/', register, name='register'),  
-]
-
-
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
+] +static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
